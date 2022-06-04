@@ -37,13 +37,12 @@ const large = e.target.dataset.source;
     openedModal(large);
 }
     
-function openedModal(large) {
-     document.body.addEventListener('click', closeModal);
-    document.body.classList.add('show-modal');
-   
-   
-       
+  document.body.addEventListener('click', onlyBackdrop);
 
+
+function openedModal(large) {
+window.addEventListener('keydown', pressedKey);
+    document.body.classList.add('show-modal');
     instance = basicLightbox.create(
         `<img 
         src="${large}"
@@ -52,12 +51,20 @@ function openedModal(large) {
     instance.show();
 }
 
-function closeModal(e) {
-    if (e.target === e.currentTarget) {
-    
-        document.body.classList.remove('show-modal');
-        document.body.removeEventListener('click', openedModal);
-    }
 
+function closeModal() {
+    window.removeEventListener('keydown', pressedKey)
+    document.body.classList.remove('show-modal');
 }
-
+function onlyBackdrop(e) {
+    if (e.currentTarget === e.target) {
+        closeModal();
+      }
+ 
+}
+function pressedKey(e) {
+    if (e.code === 'Escape') {
+        closeModal();
+}
+   
+}
