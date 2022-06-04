@@ -10,7 +10,7 @@ galleryContainer.insertAdjacentHTML("beforeend", photoSet);
 galleryContainer.addEventListener('click', clickOnTheImg);
 
 console.log(createPhotoMarcup(galleryItems));
-
+// рендеринг
 function createPhotoMarcup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return`<div class="gallery__item">
