@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items.js';
 const galleryContainer = document.querySelector('.gallery');
 const ulEl = document.createElement("ul");
 galleryContainer.appendChild(ulEl);
-ulEl.classList.add('.gallery');
+ulEl.classList.add('gallery')
 
 const photoSet = createPhotoMarcup(galleryItems);
 ulEl.insertAdjacentHTML("beforeend", photoSet);
@@ -30,9 +30,9 @@ function createPhotoMarcup(galleryItems) {
 
 
 
-preview.addEventListener('click', modalOpen);
-function modalOpen(e) {
+// preview.addEventListener('click', modalOpen);
+// function modalOpen(e) {
     
-}
+// }
 
 
