@@ -37,34 +37,34 @@ const large = e.target.dataset.source;
     openedModal(large);
 }
     
-  document.body.addEventListener('click', onlyBackdrop);
+ 
 
 
 function openedModal(large) {
-window.addEventListener('keydown', pressedKey);
-    document.body.classList.add('show-modal');
+    // document.body.addEventListener('click' , onlyBackdrop );
     instance = basicLightbox.create(
         `<img 
         src="${large}"
     />
 `);
     instance.show();
+    window.addEventListener('keydown', pressedKey);
 }
 
 
-function closeModal() {
-    window.removeEventListener('keydown', pressedKey)
-    document.body.classList.remove('show-modal');
-}
-function onlyBackdrop(e) {
-    if (e.currentTarget === e.target) {
-        closeModal();
-      }
- 
-}
+// function closeModal() {
+     
+// }
+// function onlyBackdrop(e) {
+//     if (e.currentTarget === e.target) {
+//        instance.close();
+//         document.body.removeEventListener('click', closeModal);
+//       }
+// }
 function pressedKey(e) {
     if (e.code === 'Escape') {
-        closeModal();
+        instance.close();
+        window.removeEventListener('keydown', pressedKey);
+        console.log("Escape");
 }
-   
 }
