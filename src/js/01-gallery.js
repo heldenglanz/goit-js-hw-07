@@ -6,11 +6,9 @@ let instance = '';
 const photoSet = createPhotoMarcup(galleryItems);
 
 galleryContainer.insertAdjacentHTML("beforeend", photoSet);
-
 galleryContainer.addEventListener('click', clickOnTheImg);
-
 console.log(createPhotoMarcup(galleryItems));
-// рендеринг
+
 function createPhotoMarcup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return`<div class="gallery__item">
@@ -36,8 +34,6 @@ function clickOnTheImg(e) {
 const large = e.target.dataset.source;
     openedModal(large);
 }
-    
- 
 
 
 function openedModal(large) {
@@ -53,14 +49,15 @@ function openedModal(large) {
 
 
 // function closeModal() {
-     
 // }
+
 // function onlyBackdrop(e) {
 //     if (e.currentTarget === e.target) {
 //        instance.close();
 //         document.body.removeEventListener('click', closeModal);
 //       }
 // }
+
 function pressedKey(e) {
     if (e.code === 'Escape') {
         instance.close();

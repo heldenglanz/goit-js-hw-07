@@ -8,7 +8,7 @@ galleryContainer.insertAdjacentHTML("beforeend", photoSet);
 galleryContainer.addEventListener('click', clickOnTheImg);
 
 console.log(createPhotoMarcup(galleryItems));
-// рендеринг
+
 function createPhotoMarcup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return `<a class="gallery__item" href="${original}">
@@ -26,7 +26,6 @@ function clickOnTheImg(e) {
     
 }
 
-// const description = e.target.dataset.alt;
 let gallery = new SimpleLightbox('.gallery a', {
     captionPosition: "bottom",
     captionsData: "alt",
