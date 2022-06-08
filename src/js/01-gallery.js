@@ -11,7 +11,7 @@ console.log(createPhotoMarcup(galleryItems));
 
 function createPhotoMarcup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
-        return`<div class="gallery__item">
+        return`
         <a class="gallery__link"
         href="${original}">
             <img 
@@ -19,7 +19,7 @@ function createPhotoMarcup(galleryItems) {
         src = "${preview}"
         data-source="${original}"
         alt = "${description}"
-            /></a></div>`;
+            /></a>`;
     }).join('');
     
 };
