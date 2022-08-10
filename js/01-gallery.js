@@ -45,23 +45,28 @@ function openedModal(large) {
 `);
     instance.show();
     window.addEventListener('keydown', pressedKey);
+    window.addEventListener('click', pressedKey);
 }
 
 
-// function closeModal() {
-// }
+function closeModal() {
+    window.removeEventListener('keydown', pressedKey);
+    window.removeEventListener('click', pressedKey);
+}
 
-// function onlyBackdrop(e) {
-//     if (e.currentTarget === e.target) {
-//        instance.close();
-//         document.body.removeEventListener('click', closeModal);
-//       }
-// }
+function onlyBackdrop(e) {
+    if (e.currentTarget === e.target) {
+       instance.close();
+        document.body.removeEventListener('click', closeModal);
+     
+      }
+}
 
 function pressedKey(e) {
     if (e.code === 'Escape') {
         instance.close();
-        window.removeEventListener('keydown', pressedKey);
+   
         console.log("Escape");
+     
 }
 }
